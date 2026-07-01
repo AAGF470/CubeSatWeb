@@ -12,7 +12,7 @@ here; the section blocks come from the package.
 1. Create a GitHub PAT (classic) with the **`read:packages`** scope.
 2. Export it in your shell (add to `~/.zshrc` to make it permanent):
    ```bash
-   export GITHUB_TOKEN=ghp_your_token_here
+   export NODE_AUTH_TOKEN=ghp_your_token_here
    ```
    The repo's `.npmrc` reads this env var — the token is never committed.
 
