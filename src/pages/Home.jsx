@@ -2,21 +2,29 @@ import { Link } from 'react-router-dom'
 import { HeroSection, FeatureGrid, Faq } from '@aagf470/ui'
 import LogoMarquee from '../components/LogoMarquee.jsx'
 import MailingList from '../components/MailingList.jsx'
-import { NSL_TEXT, CUBESAT_TEXT, TEAMS, PARTNERS, ALUMNI_COMPANIES } from '../data'
+import { NSL_TEXT, CUBESAT_TEXT, BEYOND_CUBESATS_TEXT, TEAMS, PARTNERS, ALUMNI_COMPANIES } from '../data'
 
 export default function Home() {
   return (
     <>
-      <HeroSection
-        eyebrow="Northeastern Satellite Lab · Est. 2022"
-        headline="Welcome to Northeastern's Satellite Lab."
-        subtext="We're a student-run club designing, building, and launching CubeSats — real spacecraft, built by undergrads across hardware, software, and simulations."
-        ctas={[
-          { label: 'Explore our work',      href: '/programs', variant: 'solid' },
-          { label: 'Join the mailing list', href: '/contact',  variant: 'ghost' },
-        ]}
-        layout="centered"
-      />
+      {/* Hero — hero.jpg (ISEC atrium) behind the standard HeroSection */}
+      <div className="nsl-hero">
+        <img
+          className="nsl-hero__photo"
+          src="/img/photos/hero.jpg"
+          alt="The atrium of Northeastern's ISEC building, with its helix staircase"
+        />
+        <HeroSection
+          eyebrow="Northeastern Satellite Lab · Est. 2022"
+          headline="Welcome to Northeastern's Satellite Lab."
+          subtext="We're a student-run club designing, building, and launching CubeSats and more — real spacecraft, built by undergrads across hardware, software, and simulations."
+          ctas={[
+            { label: 'Explore our work',      href: '/projects', variant: 'solid' },
+            { label: 'Join the mailing list', href: '/contact',  variant: 'ghost' },
+          ]}
+          layout="centered"
+        />
+      </div>
 
       <Faq
         eyebrow="Get to know us"
@@ -28,10 +36,19 @@ export default function Home() {
         variant="alt"
       />
 
+      {/* Not only CubeSats */}
+      <section className="nsl-block">
+        <div className="nsl-block__inner">
+          <p className="nsl-eyebrow">More than CubeSats</p>
+          <h2 className="nsl-h2">Satellites are just the start</h2>
+          <p className="nsl-sub" style={{ maxWidth: '720px', marginBottom: 0 }}>{BEYOND_CUBESATS_TEXT}</p>
+        </div>
+      </section>
+
       <FeatureGrid
         eyebrow="Our teams"
         headline="Three teams, one spacecraft"
-        subtext="Every member joins a team and builds real flight hardware, software, or mission analysis."
+        subtext="Every member joins a team and builds real flight hardware, software, or mission analysis — mechanical, electrical, and computing students all have a home here."
         items={TEAMS}
         columns={3}
         variant="default"
@@ -62,17 +79,17 @@ export default function Home() {
           <p className="nsl-eyebrow">Our work</p>
           <h2 className="nsl-h2">Missions, competitions, and open-source tools</h2>
           <div className="nsl-worklinks">
-            <Link className="nsl-worklink" to="/programs">
-              <span className="nsl-worklink__eyebrow">Active programs</span>
-              <div className="nsl-worklink__title">Satellites &amp; ground stations</div>
-              <p className="nsl-worklink__body">Teralink-1, our Sub-THz ground station, and PROVES Atlas — the CubeSat we launched in April 2026.</p>
-              <span className="nsl-worklink__cta">See our programs →</span>
-            </Link>
             <Link className="nsl-worklink" to="/projects">
-              <span className="nsl-worklink__eyebrow">Competitions &amp; R&amp;D</span>
-              <div className="nsl-worklink__title">Competitions &amp; research</div>
-              <p className="nsl-worklink__body">NASA Space to Soil (DEWSat), GTOC-14, and open-source tools like SatSim and our star tracker.</p>
-              <span className="nsl-worklink__cta">See projects →</span>
+              <span className="nsl-worklink__eyebrow">Full portfolio</span>
+              <div className="nsl-worklink__title">Projects</div>
+              <p className="nsl-worklink__body">Everything we're building — active satellite &amp; ground-station programs, competitions like NASA Space to Soil, and open-source R&amp;D.</p>
+              <span className="nsl-worklink__cta">See all projects →</span>
+            </Link>
+            <Link className="nsl-worklink" to="/programs">
+              <span className="nsl-worklink__eyebrow">Flagship programs</span>
+              <div className="nsl-worklink__title">Programs</div>
+              <p className="nsl-worklink__body">The deep dive on our flagship flight experiments — PROVES Atlas, Teralink-1, and the Sub-THz Ground Station.</p>
+              <span className="nsl-worklink__cta">See our programs →</span>
             </Link>
           </div>
         </div>

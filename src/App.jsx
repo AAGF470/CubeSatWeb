@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom'
 import './App.css'
-import { CONTACT_EMAIL } from './data'
+import { CONTACT_EMAIL, SOCIALS } from './data'
 import Home from './pages/Home.jsx'
 import Programs from './pages/Programs.jsx'
 import Projects from './pages/Projects.jsx'
@@ -59,7 +59,7 @@ function Footer() {
           </div>
           <p className="nsl-footer__tagline">
             A student-run club at Northeastern University designing, building, and launching
-            CubeSats — hardware, software, and simulations.
+            CubeSats and more — hardware, software, and simulations.
           </p>
         </div>
         <div className="nsl-footer__col">
@@ -73,6 +73,10 @@ function Footer() {
           <span className="nsl-footer__col-title">Get in touch</span>
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           <Link to="/contact">Contact &amp; mailing list</Link>
+          {/* TODO: real URLs — see SOCIALS in data.js */}
+          {SOCIALS.map(s => (
+            <a key={s.label} href={s.href}>{s.label}</a>
+          ))}
         </div>
       </div>
       <div className="nsl-footer__bottom">

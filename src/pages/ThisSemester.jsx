@@ -1,6 +1,9 @@
 import { SCHEDULE, ROSTER, CONTACT_EMAIL } from '../data'
 
-const initials = name => name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
+const initials = name =>
+  /TBA/.test(name)
+    ? '?'
+    : name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
 
 export default function ThisSemester() {
   return (
@@ -9,23 +12,18 @@ export default function ThisSemester() {
         <div className="nsl-intro__inner">
           <p className="nsl-eyebrow">This Semester</p>
           <h1 className="nsl-intro__title">Meetings, schedule &amp; who to talk to</h1>
-          <p className="nsl-intro__lead">Everything you need to show up and get involved this semester. [Placeholder schedule — update each term.]</p>
+          <p className="nsl-intro__lead">Everything you need to show up and get involved this semester.</p>
         </div>
       </header>
 
-      {/* Quick facts */}
+      {/* Schedule — placeholder values, clearly marked */}
       <section className="nsl-block">
         <div className="nsl-block__inner">
           <div className="nsl-cards" style={{ marginBottom: '40px' }}>
             <div className="nsl-info-card">
               <h3>General meeting</h3>
               <p className="nsl-info-card__big">Wed · 7:30 PM</p>
-              <p>Forsyth 129 — all members welcome.</p>
-            </div>
-            <div className="nsl-info-card">
-              <h3>Open lab</h3>
-              <p className="nsl-info-card__big">Fri · 3–6 PM</p>
-              <p>Drop in at the ISEC lab, no experience needed.</p>
+              <p>Location TBD — all members welcome. [Placeholder]</p>
             </div>
             <div className="nsl-info-card">
               <h3>Questions?</h3>
@@ -35,6 +33,9 @@ export default function ThisSemester() {
           </div>
 
           <h2 className="nsl-h2">Weekly schedule</h2>
+          <p className="nsl-detail__ph" style={{ marginTop: 0 }}>
+            Placeholder times &amp; rooms — the team updates these each term
+          </p>
           <div className="nsl-table-wrap" style={{ marginTop: '20px' }}>
             <table className="nsl-table">
               <thead>
